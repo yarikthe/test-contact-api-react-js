@@ -1,0 +1,6 @@
+.header h1{
+    display: flex;
+    justify-content: space-between;
+    color: white!important;
+    background: dimgray;
+}
