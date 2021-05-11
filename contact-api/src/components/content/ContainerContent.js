@@ -36,7 +36,7 @@ export default class ContainerContent extends React.Component {
                 console.log(res.data.results);
             })
     }
-
+    // Draw Component
     render() {
         return (
             <div className={style.content}>
