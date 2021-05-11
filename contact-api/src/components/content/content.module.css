@@ -1,0 +1,53 @@
+.content{
+    min-width: 800px;
+    max-width: 1240px;
+    height: 100%;
+    margin: auto;
+    padding: 10px;
+    /*border: 1px solid red;*/
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+}
+
+.data{
+    /*border: 1px solid black;*/
+    padding: 5px;
+    text-align: center;
+}
+
+.data img{
+    /*height: 150px;*/
+    /*width: auto;*/
+}
+
+.pagination{
+    margin-top: 10px;
+    /*border: 1px solid green;*/
+}
+
+.marginTop{
+    margin-top: 75px!important;
+}
+
+.card{
+    text-align: left;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.span{
+    margin-top: 20px;
+    color: black;
+}
+
+.spanYear{
+    margin-top: 20px;
+    color: grey;
+}
+
+.spanCountry{
+    padding: 5px;
+    margin-top: 20px;
+    background: antiquewhite;
+    color: grey;
+    border-radius: 5px;
+}

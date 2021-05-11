@@ -7,14 +7,14 @@ import './index.css';
 import { Layout, Button} from 'antd';
 import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
-import Content from "./components/content/content";
+import ContainerContent from "./components/content/ContainerContent";
 
 function App() {
   return (
     <div className="App">
         <Layout>
             <Header />
-            <Content />
+            <ContainerContent />
             <Footer name="Contact API"></Footer>
         </Layout>
     </div>

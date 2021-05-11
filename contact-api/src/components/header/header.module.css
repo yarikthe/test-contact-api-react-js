@@ -3,4 +3,12 @@
     justify-content: space-between;
     color: white!important;
     background: dimgray;
+    padding: 10px;
 }
+
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
