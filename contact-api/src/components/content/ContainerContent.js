@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+
 import Content from "./content";
 import style from "./content.module.css";
 import {Row, Col, Pagination, Divider} from "antd";
@@ -12,7 +13,7 @@ export default class ContainerContent extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`https://randomuser.me/api/?results=25`)
+        axios.get(`https://randomuser.me/api/?page=1&results=10`)
             .then(res => {
                 // console.log(res);
                 console.log(res.data.results);
@@ -23,6 +24,13 @@ export default class ContainerContent extends React.Component {
 
     onShowSizeChange(current, pageSize) {
         console.log(current, pageSize);
+        axios.get('https://randomuser.me/api/?page='+ current +'&results='+ pageSize)
+            .then(res => {
+                console.log(res.data.results);
+                const persons = res.data.results;
+                const list = [... this.state.persons];
+                this.setState({ list });
+            });
     }
 
     render() {
@@ -50,7 +58,8 @@ export default class ContainerContent extends React.Component {
                     <Divider orientation="left">Pagination</Divider>
                     <Pagination
                         showSizeChanger
-                        onShowSizeChange={this.onShowSizeChange}
+                        // onShowSizeChange={this.onShowSizeChange}
+                        onShowSizeChange={10}
                         defaultCurrent={1}
                         total={100}
                     />

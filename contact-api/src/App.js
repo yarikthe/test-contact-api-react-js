@@ -9,7 +9,7 @@ import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
 import ContainerContent from "./components/content/ContainerContent";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
         <Layout>
