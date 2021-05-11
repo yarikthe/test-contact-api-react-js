@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-
 import Content from "./content";
 import style from "./content.module.css";
-import {Row, Col, Pagination, Divider} from "antd";
+import {Row, Pagination, Divider} from "antd";
 
 export default class ContainerContent extends React.Component {
 
@@ -24,13 +23,18 @@ export default class ContainerContent extends React.Component {
 
     onShowSizeChange(current, pageSize) {
         console.log(current, pageSize);
-        axios.get('https://randomuser.me/api/?page='+ current +'&results='+ pageSize)
+        axios.get('https://randomuser.me/api/?page=' + current + '&results=' + pageSize)
             .then(res => {
                 console.log(res.data.results);
-                const persons = res.data.results;
-                const list = [... this.state.persons];
-                this.setState({ list });
-            });
+            })
+    }
+
+    onShowPageCurrentChange(page, pageSize) {
+        console.log(page, pageSize);
+        axios.get('https://randomuser.me/api/?page=' + page + '&results=' + pageSize)
+            .then(res => {
+                console.log(res.data.results);
+            })
     }
 
     render() {
@@ -40,6 +44,7 @@ export default class ContainerContent extends React.Component {
                 <Row>
                         {
                             this.state.persons.map(person => <Content
+                                key={person.id['value']}
                                 name={person.name['first'] }
                                 nameLast={person.name['last']}
                                 dob={person.dob['age']}
@@ -59,8 +64,9 @@ export default class ContainerContent extends React.Component {
                     <Pagination
                         showSizeChanger
                         // onShowSizeChange={this.onShowSizeChange}
-                        onShowSizeChange={10}
+                        onShowSizeChange={this.onShowSizeChange}
                         defaultCurrent={1}
+                        onChange={this.onShowPageCurrentChange}
                         total={100}
                     />
                 </div>

@@ -7,7 +7,7 @@ const SET_PER_PAGE = "SET_PER_PAGE";
 let initialState = {
     users: [],
     pageSize: 10,//Count item on one page
-    totalUsersCount: 50, //Count users data
+    totalUsersCount: 100, //Count users data
     currentPage: 1, //Current page
 };
 
