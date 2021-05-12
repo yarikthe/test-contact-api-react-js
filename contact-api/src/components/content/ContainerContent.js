@@ -3,9 +3,8 @@ import axios from 'axios';
 import Content from "./content";
 import style from "./content.module.css";
 import {Row, Pagination, Divider} from "antd";
-import {observable, action, makeObservable} from "mobx";
 import contact from './../../store/contact';
-import {observer} from "mobx-react-lite";
+import {observer} from "mobx-react";
 
 class ContainerContent extends React.Component {
 
@@ -19,7 +18,7 @@ class ContainerContent extends React.Component {
                 <Divider orientation="left" className={style.marginTop}>Contact</Divider>
                 <Row>
                     {
-                        this.state.persons.map(person => <Content
+                        contact.contacts.map(person => <Content
                             key={person.id['value']}
                             name={person.name['first']}
                             nameLast={person.name['last']}
@@ -40,7 +39,7 @@ class ContainerContent extends React.Component {
                     <Pagination
                         showSizeChanger
                         // onShowSizeChange={this.onShowSizeChange}
-                        // onShowSizeChange={this.onShowSizeChange}
+                        onShowSizeChange={contact.changePageSize}
                         defaultCurrent={1}
                         onChange={contact.changeSize}
                         total={100}

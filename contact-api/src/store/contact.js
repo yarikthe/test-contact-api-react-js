@@ -1,29 +1,20 @@
-import {makeObservable, action, observable, flow} from "mobx";
+import {makeAutoObservable} from "mobx";
 import axios from "axios";
-import contact from "../_redux/reducer/contact";
 
 class Contact{
 
-    contact = [];
+    contacts = [];
 
-    constructor(props) {
-
-        makeObservable(this, {
-            contact: observable,
-            changePageSize: action.bound,
-            changePage: action.bound,
-            fetchContact: flow,
-            changeSize: action.bound
-        });
-        this.contact = contact()
+    constructor(contacts) {
+        makeAutoObservable(this);
+        this.contacts = contacts
     }
 
-    fetchContact()
-    {
+    fetchContact = () =>{
         axios.get(`https://randomuser.me/api/?results=20`)
             .then(res => {
                 console.log(res.data.results);
-                this.contact = res.data.results
+                this.contacts = res.data.results
             })
     }
 
@@ -33,7 +24,7 @@ class Contact{
         axios.get('https://randomuser.me/api/?page=1&results=' + pageSize)
             .then(res => {
                 console.log(res.data.results);
-                this.contact = [...this.contact, ...res.data.results]
+                this.contacts = [...this.contacts, ...res.data.results]
             })
     }
 
@@ -42,7 +33,7 @@ class Contact{
         axios.get('https://randomuser.me/api/?page=' + page +'&results=' + size)
             .then(res => {
                 console.log(res.data.results);
-                this.contact = [...this.contact, ...res.data.results]
+                this.contacts = [...this.contacts, ...res.data.results]
             })
     }
 
