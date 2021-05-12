@@ -9,10 +9,17 @@ import {observer} from "mobx-react";
 class ContainerContent extends React.Component {
 
     componentDidMount() {
-        contact.fetchContact()
+        // contact.fetchContact()
+        axios.get(`https://randomuser.me/api/?results=20`)
+            .then(res => {
+                console.log(res.data.results);
+                contact.contacts = res.data.results;
+            })
     }
 
     render() {
+        const {contacts} = contact;
+
         return (
             <div className={style.content}>
                 <Divider orientation="left" className={style.marginTop}>Contact</Divider>

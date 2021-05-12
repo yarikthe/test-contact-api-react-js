@@ -7,14 +7,16 @@ class Contact{
 
     constructor(contacts) {
         makeAutoObservable(this);
-        this.contacts = contacts
+        // this.contacts = contacts
     }
 
-    fetchContact = () =>{
+    fetchContact()
+    {
         axios.get(`https://randomuser.me/api/?results=20`)
             .then(res => {
                 console.log(res.data.results);
                 this.contacts = res.data.results
+                // this.contacts.data = [...this.contacts, ...res.data.results]
             })
     }
 
