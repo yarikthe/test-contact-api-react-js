@@ -1,8 +1,46 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Component} from 'react';
 import axios from 'axios';
 import Content from "./content";
 import style from "./content.module.css";
 import {Row, Pagination, Divider} from "antd";
+import {observable, action, makeObservable} from "mobx";
+import contact from './../../store/contact';
+
+export const ContainerContent2 = observer(class extends Component{
+
+    contact = [];
+
+    constructor(props) {
+        super(props);
+
+        makeObservable(this, {
+            contact: observable,
+            next: action.bound,
+            prev: action.bound,
+            changeSize: action.bound
+        });
+    }
+
+    next(){
+
+    }
+
+    prev(){
+
+    }
+
+    changeSize()
+    {
+
+    }
+
+    render(){
+        return <>
+            sad
+            </>
+    }
+
+});
 
 export default class ContainerContent extends React.Component {
 
