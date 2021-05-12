@@ -10,22 +10,22 @@ class ContainerContent extends React.Component {
 
     componentDidMount() {
         // contact.fetchContact()
-        axios.get(`https://randomuser.me/api/?results=20`)
+        axios.get(`https://randomuser.me/api/?results=25`)
             .then(res => {
                 console.log(res.data.results);
-                contact.contacts = res.data.results;
+                // contact.contacts = res.data.results;
+                contact.data = res.data.results;
             })
     }
 
     render() {
-        const {contacts} = contact;
-
+         const {data} = contact;
         return (
             <div className={style.content}>
                 <Divider orientation="left" className={style.marginTop}>Contact</Divider>
                 <Row>
                     {
-                        contact.contacts.map(person => <Content
+                        data.map(person => <Content
                             key={person.id['value']}
                             name={person.name['first']}
                             nameLast={person.name['last']}
@@ -48,7 +48,7 @@ class ContainerContent extends React.Component {
                         // onShowSizeChange={this.onShowSizeChange}
                         onShowSizeChange={contact.changePageSize}
                         defaultCurrent={1}
-                        onChange={contact.changeSize}
+                        onChange={contact.changePageSize}
                         total={100}
                     />
                 </div>
