@@ -8,6 +8,7 @@ import { Layout, Button} from 'antd';
 import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
 import ContainerContent from "./components/content/ContainerContent";
+import {observer} from "mobx-react";
 
 function App(props) {
   return (
@@ -21,4 +22,4 @@ function App(props) {
   );
 }
 
-export default App;
+export default observer(App);

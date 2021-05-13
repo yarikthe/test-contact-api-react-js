@@ -10,24 +10,25 @@ class ContainerContent extends React.Component {
 
     componentDidMount()
     {
-        // contact.fetchContact(1, 10)
-        axios.get(`https://randomuser.me/api/?page=1&results=10`)
-            .then(res => {
-                console.log(res.data.results);
-                // contact.contacts = res.data.results;
-                contact.contacts = res.data.results;
-            })
+        contact.fetchContact(1, 20)
+        // axios.get(`https://randomuser.me/api/?page=1&results=10`)
+        //     .then(res => {
+        //         console.log(res.data.results);
+        //         // contact.contacts = res.data.results;
+        //         contact.contacts = res.data.results;
+        //     })
     }
 
     changePage(current, pageSize)
     {
+        contact.changePageContact(current, pageSize)
         console.log(current, pageSize)
-        axios.get('https://randomuser.me/api/?page=' + current +'&results=' + pageSize)
-            .then(res => {
-                console.log(res.data.results);
-                contact.contacts = [...contact.contacts, res.data.results]
-                // contact.contacts = res.data.results;
-            })
+        // axios.get('https://randomuser.me/api/?page=' + current +'&results=' + pageSize)
+        //     .then(res => {
+        //         console.log(res.data.results);
+        //         // contact.contacts = [...contact.contacts, res.data.results]
+        //         contact.contacts = res.data.results;
+        //     })
     }
 
     render() {

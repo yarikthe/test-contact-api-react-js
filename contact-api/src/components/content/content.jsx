@@ -11,7 +11,7 @@ const Content = (props) => {
     const location = props.postcode + ' ' + props.country + ', ' + props.state + ', ' + props.city
 
     return (
-        <Col span={8}>
+        <Col span={6}>
 
             <div className={style.data}>
                 <Card
