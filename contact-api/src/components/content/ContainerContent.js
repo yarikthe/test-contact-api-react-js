@@ -10,6 +10,7 @@ class ContainerContent extends React.Component {
 
     componentDidMount()
     {
+        // contact.fetchContact(1, 10)
         axios.get(`https://randomuser.me/api/?page=1&results=10`)
             .then(res => {
                 console.log(res.data.results);
@@ -24,8 +25,8 @@ class ContainerContent extends React.Component {
         axios.get('https://randomuser.me/api/?page=' + current +'&results=' + pageSize)
             .then(res => {
                 console.log(res.data.results);
-                // contact.contacts = [...contact.contacts, ...res.data.results]
-                contact.contacts = res.data.results;
+                contact.contacts = [...contact.contacts, res.data.results]
+                // contact.contacts = res.data.results;
             })
     }
 

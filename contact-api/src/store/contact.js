@@ -1,16 +1,34 @@
 import {makeAutoObservable} from "mobx";
 import axios from "axios";
+import {Component} from "react";
 
-class Contact{
+class Contact {
 
     contacts = [];
 
-    data = [];
+    // state = {
+    //     data: null,
+    //     currentPage: 1,
+    //     sizePage: 10
+    // }
 
     constructor() {
         makeAutoObservable(this);
         // this.contacts = contacts
     }
+
+    // fetchContact(page, size)
+    // {
+    //     axios.get(`https://randomuser.me/api/?page=${page}&results=${size}`)
+    //         .then(res => {
+    //             console.log(res.data.results);
+    //             this.contacts = res.data.results
+    //
+    //             this.state.data =  res.data.results;
+    //             this.state.currentPage =  res.data.info['page'];
+    //             this.state.sizePage = res.data.info['results'];
+    //         })
+    // }
 
     // changePage(current, pageSize)
     // {
@@ -19,18 +37,6 @@ class Contact{
     //         .then(res => {
     //             console.log(res.data.results);
     //             this.contacts = [...this.contacts, ...res.data.results]
-    //         })
-    // }
-
-
-    //
-    // fetchContact()
-    // {
-    //     axios.get(`https://randomuser.me/api/?results=20`)
-    //         .then(res => {
-    //             console.log(res.data.results);
-    //             this.contacts = res.data.results
-    //             // this.contacts.data = [...this.contacts, ...res.data.results]
     //         })
     // }
 
