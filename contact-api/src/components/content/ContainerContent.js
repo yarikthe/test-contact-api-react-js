@@ -39,7 +39,7 @@ class ContainerContent extends React.Component {
                 <Row>
                     {
                         contact.contacts.map(person => <Content
-                            key={person.id['value']}
+                            key={person.id.value}
                             name={person.name['first']}
                             nameLast={person.name['last']}
                             dob={person.dob['age']}
