@@ -7,29 +7,20 @@ class Contact{
 
     data = [];
 
-    constructor(contacts) {
+    constructor() {
         makeAutoObservable(this);
         // this.contacts = contacts
     }
 
-    // set new size per page
-    changePageSize(pageSize)
-    {
-        axios.get('https://randomuser.me/api/?page=1&results=' + pageSize)
-            .then(res => {
-                console.log(res.data.results);
-                this.contacts = [...this.contacts, ...res.data.results]
-            })
-    }
-
-    changePage(page, size)
-    {
-        axios.get('https://randomuser.me/api/?page=' + page +'&results=' + size)
-            .then(res => {
-                console.log(res.data.results);
-                this.contacts = [...this.contacts, ...res.data.results]
-            })
-    }
+    // changePage(current, pageSize)
+    // {
+    //     console.log(current, pageSize)
+    //     axios.get('https://randomuser.me/api/?page=' + current +'&results=' + pageSize)
+    //         .then(res => {
+    //             console.log(res.data.results);
+    //             this.contacts = [...this.contacts, ...res.data.results]
+    //         })
+    // }
 
 
     //
@@ -43,6 +34,15 @@ class Contact{
     //         })
     // }
 
+    // set new size per page
+    // changePageSize(pageSize)
+    // {
+    //     axios.get('https://randomuser.me/api/?page=1&results=' + pageSize)
+    //         .then(res => {
+    //             console.log(res.data.results);
+    //             this.contacts = [...this.contacts, ...res.data.results]
+    //         })
+    // }
 
     //
     // changeSize(current, pageSize) {

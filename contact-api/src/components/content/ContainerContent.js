@@ -8,24 +8,35 @@ import {observer} from "mobx-react";
 
 class ContainerContent extends React.Component {
 
-    componentDidMount() {
-        // contact.fetchContact()
-        axios.get(`https://randomuser.me/api/?results=25`)
+    componentDidMount()
+    {
+        axios.get(`https://randomuser.me/api/?page=1&results=10`)
             .then(res => {
                 console.log(res.data.results);
                 // contact.contacts = res.data.results;
-                contact.data = res.data.results;
+                contact.contacts = res.data.results;
+            })
+    }
+
+    changePage(current, pageSize)
+    {
+        console.log(current, pageSize)
+        axios.get('https://randomuser.me/api/?page=' + current +'&results=' + pageSize)
+            .then(res => {
+                console.log(res.data.results);
+                // contact.contacts = [...contact.contacts, ...res.data.results]
+                contact.contacts = res.data.results;
             })
     }
 
     render() {
-         const {data} = contact;
+
         return (
             <div className={style.content}>
                 <Divider orientation="left" className={style.marginTop}>Contact</Divider>
                 <Row>
                     {
-                        data.map(person => <Content
+                        contact.contacts.map(person => <Content
                             key={person.id['value']}
                             name={person.name['first']}
                             nameLast={person.name['last']}
@@ -45,10 +56,8 @@ class ContainerContent extends React.Component {
                     <Divider orientation="left">Pagination</Divider>
                     <Pagination
                         showSizeChanger
-                        // onShowSizeChange={this.onShowSizeChange}
-                        onShowSizeChange={contact.changePageSize}
                         defaultCurrent={1}
-                        onChange={contact.changePageSize}
+                        onChange={this.changePage}
                         total={100}
                     />
                 </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card, Col} from "antd";
 import style from "./content.module.css";
+import {observer} from "mobx-react";
 const { Meta } = Card;
 
 const Content = (props) => {
@@ -37,4 +38,4 @@ const Content = (props) => {
     );
 }
 
-export default Content;
+export default observer(Content);
