@@ -10,7 +10,7 @@ class ContainerContent extends React.Component {
 
     componentDidMount()
     {
-        contact.fetchContact(1, 10)
+        contact.fetchContact();
         // axios.get(`https://randomuser.me/api/?page=1&results=10`)
         //     .then(res => {
         //         console.log(res.data.results);
@@ -21,8 +21,8 @@ class ContainerContent extends React.Component {
 
     changePage(current, pageSize)
     {
-        contact.changePageContact(current, pageSize)
-        console.log(current, pageSize)
+        contact.changePageContact(current, pageSize);
+        console.log(current, pageSize);
         // axios.get('https://randomuser.me/api/?page=' + current +'&results=' + pageSize)
         //     .then(res => {
         //         console.log(res.data.results);

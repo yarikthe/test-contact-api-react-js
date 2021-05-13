@@ -9,9 +9,9 @@ class Contact {
         makeAutoObservable(this);
     }
 
-    fetchContact(page, size)
+    fetchContact()
     {
-        axios.get(`https://randomuser.me/api/?page=${page}&results=${size}`)
+        axios.get(`https://randomuser.me/api/?page=1&results=10`)
             .then(res => {
                 console.log(res.data.results);
                 this.contacts = res.data.results
